@@ -7,88 +7,124 @@ import {
   Waves,
   Dumbbell,
   Trophy,
+  ArrowRight,
 } from "lucide-react";
 
 const highlights = [
   {
     icon: Building2,
     title: "21 Acre Township",
-    desc: "Large integrated premium residential township.",
+    desc: "A thoughtfully planned integrated township with premium residences, landscaped avenues and modern urban infrastructure.",
   },
   {
     icon: Trees,
     title: "70% Open Spaces",
-    desc: "Green landscapes and beautifully planned gardens.",
+    desc: "Experience lush green landscapes, gardens and open recreational spaces designed for healthier everyday living.",
   },
   {
     icon: Waves,
     title: "Riverside Living",
-    desc: "Premium lifestyle with serene river views.",
+    desc: "Wake up to peaceful river views and enjoy a refreshing environment away from the city's chaos.",
   },
   {
     icon: Dumbbell,
-    title: "50+ Amenities",
-    desc: "Clubhouse, gym, swimming pool and much more.",
+    title: "50+ Lifestyle Amenities",
+    desc: "Clubhouse, swimming pool, gym, sports courts, children's play area and much more.",
   },
   {
     icon: Trophy,
     title: "Premium Lifestyle",
-    desc: "Luxury living crafted by Kolte Patil Developers.",
+    desc: "Luxury homes crafted with superior specifications, elegant interiors and timeless architecture.",
   },
   {
     icon: ShieldCheck,
     title: "RERA Approved",
-    desc: "Transparent and legally compliant project.",
+    desc: "Buy with confidence in a legally compliant project from a trusted developer.",
   },
 ];
 
 export default function Highlights() {
   return (
-    <section className="py-24 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-[#F8F8F6] py-28">
 
-        <div className="text-center mb-16">
+      <div className="mx-auto max-w-7xl px-6">
 
-          <p className="text-yellow-600 font-semibold uppercase tracking-widest">
-            Project Highlights
+        {/* Heading */}
+
+        <div className="mx-auto mb-20 max-w-3xl text-center">
+
+          <p className="font-semibold uppercase tracking-[0.35em] text-[#C89B3C]">
+
+            PROJECT HIGHLIGHTS
+
           </p>
 
-          <h2 className="text-5xl font-bold mt-4">
-            Why Choose Vyana?
+          <h2 className="mt-5 font-heading text-5xl font-bold leading-tight text-gray-900 lg:text-6xl">
+
+            Designed For
+            <br />
+
+            Premium Living
+
           </h2>
 
-          <p className="mt-5 text-gray-600 max-w-2xl mx-auto">
-            Experience premium architecture, world-class amenities,
-            green open spaces and a luxurious lifestyle at one of
-            Pune's fastest growing locations.
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-gray-600">
+
+            Experience luxurious riverside living with world-class
+            amenities, expansive green spaces and thoughtfully
+            designed residences in one of Pune's most promising
+            locations.
+
           </p>
 
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Cards */}
+
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
 
           {highlights.map((item) => (
             <div
               key={item.title}
-              className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition duration-300 border"
+              className="group rounded-[30px] border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#C89B3C]/30 hover:shadow-2xl"
             >
-              <div className="w-16 h-16 rounded-2xl bg-yellow-500 flex items-center justify-center mb-6">
-                <item.icon className="w-8 h-8 text-black" />
+
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#C89B3C]/10">
+
+                <item.icon
+                  size={30}
+                  className="text-[#C89B3C]"
+                />
+
               </div>
 
-              <h3 className="text-2xl font-bold mb-3">
+              <h3 className="mt-8 text-2xl font-bold text-gray-900">
+
                 {item.title}
+
               </h3>
 
-              <p className="text-gray-600 leading-7">
+              <p className="mt-5 leading-8 text-gray-600">
+
                 {item.desc}
+
               </p>
+
+              <div className="mt-8 flex items-center gap-2 font-semibold text-[#C89B3C] opacity-0 transition-all duration-300 group-hover:opacity-100">
+
+                Learn More
+
+                <ArrowRight size={18} />
+
+              </div>
+
             </div>
           ))}
 
         </div>
 
       </div>
+
     </section>
   );
 }

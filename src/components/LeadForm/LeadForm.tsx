@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { CheckCircle2 } from "lucide-react";
 
 export default function LeadForm() {
+  const router = useRouter();
+
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
 
   async function handleSubmit(
     e: React.FormEvent<HTMLFormElement>
@@ -14,7 +16,6 @@ export default function LeadForm() {
 
     if (loading) return;
 
-    // SAVE THE FORM BEFORE ANY AWAIT
     const formElement = e.currentTarget;
 
     setLoading(true);
@@ -24,6 +25,7 @@ export default function LeadForm() {
     const lead = {
       name: form.get("name"),
       phone: form.get("phone"),
+      email: form.get("email"),
       configuration: form.get("configuration"),
       budget: form.get("budget"),
       purpose: form.get("purpose"),
@@ -42,16 +44,39 @@ export default function LeadForm() {
       const result = await response.json();
 
       if (!response.ok || !result.success) {
-        throw new Error(result.message || "Failed to submit.");
+        throw new Error(
+          result.message || "Failed to submit."
+        );
       }
 
-      // RESET USING SAVED REFERENCE
       formElement.reset();
 
-      // SHOW SUCCESS POPUP
-      setSuccess(true);
+      /* ===========================
+         TRACKING EVENTS
+      =========================== */
+
+      if (typeof window !== "undefined") {
+        const w = window as any;
+
+        // Meta Pixel
+        if (typeof w.fbq === "function") {
+          w.fbq("track", "Lead");
+        }
+
+        // GTM / GA4
+        w.dataLayer = w.dataLayer || [];
+
+        w.dataLayer.push({
+          event: "generate_lead",
+          lead_source: "Website",
+          project: "Kolte Patil Vyana",
+        });
+      }
+
+      router.push("/thank-you");
 
     } catch (error) {
+
       console.error(error);
 
       alert(
@@ -59,158 +84,141 @@ export default function LeadForm() {
           ? error.message
           : "Something went wrong."
       );
+
     } finally {
+
       setLoading(false);
+
     }
   }
 
   return (
-    <>
-      {success && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm px-6">
+    <div
+      id="lead-form"
+      className="rounded-[32px] border border-white/20 bg-white/95 p-8 shadow-[0_25px_70px_rgba(0,0,0,0.25)] backdrop-blur-xl"
+    >
 
-          <div className="w-full max-w-md rounded-3xl bg-white p-8 text-center shadow-2xl">
+      <div className="mb-8">
 
-            <CheckCircle2
-              size={72}
-              className="mx-auto text-green-600"
-            />
+        <p className="font-semibold uppercase tracking-[0.22em] text-[#C89B3C]">
 
-            <h2 className="mt-6 text-3xl font-bold">
-              Thank You!
-            </h2>
+          EXCLUSIVE LAUNCH PRICING
 
-            <p className="mt-4 leading-7 text-gray-600">
-              Your enquiry has been submitted successfully.
-            </p>
+        </p>
 
-            <div className="mt-8 rounded-2xl bg-yellow-50 p-5 text-left">
+        <h2 className="mt-2 font-heading text-4xl font-bold text-gray-900">
 
-              <p className="font-semibold">
-                Our Relationship Manager will contact you shortly.
-              </p>
+          Get Price Sheet &
+          <br />
+          Exclusive Offers
 
-              <ul className="mt-4 space-y-2 text-sm text-gray-600">
-                <li>✔ Latest Price Sheet</li>
-                <li>✔ Floor Plans</li>
-                <li>✔ Exclusive Launch Offers</li>
-                <li>✔ Free Site Visit</li>
-              </ul>
+        </h2>
 
-            </div>
+        <p className="mt-4 leading-7 text-gray-600">
 
-            <button
-              onClick={() => setSuccess(false)}
-              className="mt-8 h-12 w-full rounded-xl bg-yellow-500 font-semibold hover:bg-yellow-600"
-            >
-              Continue
-            </button>
+          Submit your details to receive the latest
+          price sheet, floor plans, payment plans and
+          exclusive launch offers directly from our
+          sales team.
 
-          </div>
-
-        </div>
-      )}
-
-      <div className="rounded-[32px] border border-white/20 bg-white/95 p-8 shadow-[0_25px_70px_rgba(0,0,0,0.25)] backdrop-blur-xl">
-
-        <div className="mb-8">
-
-          <p className="font-semibold uppercase tracking-widest text-yellow-600">
-            Enquire Now
-          </p>
-
-          <h2 className="mt-2 text-3xl font-bold">
-            Book Free Site Visit
-          </h2>
-
-          <p className="mt-3 text-gray-500">
-            Get Price Sheet, Floor Plans & Exclusive Launch Offers
-          </p>
-
-        </div>
-
-        <form
-          onSubmit={handleSubmit}
-          className="space-y-5"
-        >
-
-          <input
-            required
-            name="name"
-            placeholder="Full Name"
-            className="h-14 w-full rounded-xl border px-5 outline-none focus:ring-2 focus:ring-yellow-500"
-          />
-
-          <input
-            required
-            name="phone"
-            type="tel"
-            placeholder="Mobile Number"
-            className="h-14 w-full rounded-xl border px-5 outline-none focus:ring-2 focus:ring-yellow-500"
-          />
-
-          <select
-            required
-            name="configuration"
-            className="h-14 w-full rounded-xl border px-5"
-          >
-            <option value="">Select Configuration</option>
-            <option>2 BHK</option>
-            <option>3 BHK</option>
-            <option>3.5 BHK</option>
-          </select>
-
-          <select
-            required
-            name="budget"
-            className="h-14 w-full rounded-xl border px-5"
-          >
-            <option value="">Select Budget</option>
-            <option>₹80L - ₹1Cr</option>
-            <option>₹1Cr - ₹1.25Cr</option>
-            <option>₹1.25Cr+</option>
-          </select>
-
-          <select
-            required
-            name="purpose"
-            className="h-14 w-full rounded-xl border px-5"
-          >
-            <option value="">Purchase Purpose</option>
-            <option>Self Use</option>
-            <option>Investment</option>
-            <option>Both</option>
-          </select>
-
-          <select
-            required
-            name="timeline"
-            className="h-14 w-full rounded-xl border px-5"
-          >
-            <option value="">Purchase Timeline</option>
-            <option>Immediately</option>
-            <option>Within 3 Months</option>
-            <option>Within 6 Months</option>
-            <option>Just Exploring</option>
-          </select>
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="h-14 w-full rounded-xl bg-yellow-500 text-lg font-semibold text-black transition hover:bg-yellow-600 disabled:cursor-not-allowed disabled:opacity-70"
-          >
-            {loading ? "Submitting..." : "Get Best Price"}
-          </button>
-
-        </form>
-
-        <div className="mt-6 text-center text-xs leading-6 text-gray-500">
-          By clicking the button, you agree to receive calls,
-          WhatsApp messages and emails from EstateOne Realtors
-          regarding this project.
-        </div>
+        </p>
 
       </div>
-    </>
+
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-5"
+      >        <input
+          required
+          name="name"
+          placeholder="Full Name"
+          className="h-14 w-full rounded-xl border border-gray-200 px-5 outline-none transition-all focus:border-[#C89B3C] focus:ring-2 focus:ring-[#C89B3C]/20"
+        />
+
+        <input
+          required
+          name="phone"
+          type="tel"
+          placeholder="Mobile Number"
+          className="h-14 w-full rounded-xl border border-gray-200 px-5 outline-none transition-all focus:border-[#C89B3C] focus:ring-2 focus:ring-[#C89B3C]/20"
+        />
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address (Optional)"
+          className="h-14 w-full rounded-xl border border-gray-200 px-5 outline-none transition-all focus:border-[#C89B3C] focus:ring-2 focus:ring-[#C89B3C]/20"
+        />
+
+        <select
+          required
+          name="configuration"
+          className="h-14 w-full rounded-xl border border-gray-200 px-5 outline-none transition-all focus:border-[#C89B3C] focus:ring-2 focus:ring-[#C89B3C]/20"
+        >
+          <option value="">Select Configuration</option>
+          <option>2 BHK</option>
+          <option>3 BHK</option>
+          <option>3.5 BHK</option>
+        </select>
+
+        <select
+          required
+          name="budget"
+          className="h-14 w-full rounded-xl border border-gray-200 px-5 outline-none transition-all focus:border-[#C89B3C] focus:ring-2 focus:ring-[#C89B3C]/20"
+        >
+          <option value="">Select Budget</option>
+          <option>₹80L - ₹1Cr</option>
+          <option>₹1Cr - ₹1.25Cr</option>
+          <option>₹1.25Cr+</option>
+        </select>
+
+        <select
+          required
+          name="purpose"
+          className="h-14 w-full rounded-xl border border-gray-200 px-5 outline-none transition-all focus:border-[#C89B3C] focus:ring-2 focus:ring-[#C89B3C]/20"
+        >
+          <option value="">Purchase Purpose</option>
+          <option>Self Use</option>
+          <option>Investment</option>
+          <option>Both</option>
+        </select>
+
+        <select
+          required
+          name="timeline"
+          className="h-14 w-full rounded-xl border border-gray-200 px-5 outline-none transition-all focus:border-[#C89B3C] focus:ring-2 focus:ring-[#C89B3C]/20"
+        >
+          <option value="">Purchase Timeline</option>
+          <option>Immediately</option>
+          <option>Within 3 Months</option>
+          <option>Within 6 Months</option>
+          <option>Just Exploring</option>
+        </select>
+
+        <button
+          type="submit"
+          disabled={loading}
+          className="h-14 w-full rounded-xl bg-[#C89B3C] text-lg font-semibold text-black transition-all hover:bg-[#B58B34] disabled:cursor-not-allowed disabled:opacity-70"
+        >
+          {loading ? "Submitting..." : "Unlock Launch Pricing"}
+        </button>
+
+        <div className="rounded-xl bg-[#FAF8F3] p-4 text-center text-sm text-gray-600">
+
+          🔒 Your information is 100% secure.
+          <br />
+          No spam. No brokerage.
+          <br />
+          Instant response from our sales team.
+
+        </div></form>
+
+      <div className="mt-6 text-center text-xs leading-6 text-gray-500">
+        By clicking the button, you agree to receive
+        calls, WhatsApp messages and emails from
+        EstateOne Realtors regarding this project.
+      </div>
+
+    </div>
   );
 }

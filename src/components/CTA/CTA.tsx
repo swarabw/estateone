@@ -1,10 +1,22 @@
 "use client";
 
+import { useCallback } from "react";
+
 import { ArrowRight, Download, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { project } from "@/data/project";
 
 export default function CTA() {
+  const scrollToForm = useCallback(() => {
+  const form = document.getElementById("lead-form");
+
+  if (form) {
+    form.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  }
+}, []);
   return (
     <section className="relative overflow-hidden bg-slate-950 py-28">
 
@@ -40,26 +52,25 @@ export default function CTA() {
 
             <div className="mt-14 flex flex-wrap justify-center gap-6">
 
+             <Button
+  size="lg"
+  onClick={scrollToForm}
+  className="h-16 px-10 text-lg bg-yellow-500 hover:bg-yellow-600 text-black font-bold"
+>
+  Book Free Site Visit
+
+  <ArrowRight className="ml-3 h-5 w-5" />
+</Button>
               <Button
-                size="lg"
-                className="h-16 px-10 text-lg bg-yellow-500 hover:bg-yellow-600 text-black font-bold"
-              >
-                Book Free Site Visit
+  size="lg"
+  onClick={scrollToForm}
+  variant="secondary"
+  className="h-16 px-10 text-lg"
+>
+  <Download className="mr-3 h-5 w-5" />
 
-                <ArrowRight className="ml-3 h-5 w-5" />
-
-              </Button>
-
-              <Button
-                size="lg"
-                variant="secondary"
-                className="h-16 px-10 text-lg"
-              >
-                <Download className="mr-3 h-5 w-5" />
-
-                Download Brochure
-
-              </Button>
+  Get Price Sheet
+</Button>
 
             </div>
 

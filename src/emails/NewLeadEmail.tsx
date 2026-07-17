@@ -18,81 +18,111 @@ export default function NewLeadEmail({
   return (
     <div
       style={{
-        fontFamily: "Arial",
-        padding: "30px",
-        background: "#f8f8f8",
+        fontFamily: "Arial, Helvetica, sans-serif",
+        background: "#f5f5f5",
+        padding: "40px",
       }}
     >
       <div
         style={{
+          maxWidth: "720px",
+          margin: "0 auto",
           background: "#ffffff",
-          padding: "30px",
-          borderRadius: "12px",
-          maxWidth: "700px",
-          margin: "auto",
+          borderRadius: "16px",
+          overflow: "hidden",
+          border: "1px solid #ececec",
         }}
       >
-        <h1
+        <div
           style={{
-            color: "#d4a017",
+            background: "#111827",
+            padding: "28px",
+            color: "#fff",
           }}
         >
-          New Property Enquiry
-        </h1>
+          <h1
+            style={{
+              margin: 0,
+              fontSize: "28px",
+            }}
+          >
+            🏡 EstateOne Realtors
+          </h1>
 
-        <hr />
+          <p
+            style={{
+              marginTop: "10px",
+              opacity: .8,
+            }}
+          >
+            New Premium Property Enquiry
+          </p>
+        </div>
 
-        <table
+        <div
           style={{
-            width: "100%",
-            marginTop: "20px",
+            padding: "35px",
           }}
         >
-          <tbody>
+          <table
+            style={{
+              width: "100%",
+              borderCollapse: "collapse",
+            }}
+          >
+            <tbody>
 
-            <tr>
-              <td><strong>Name</strong></td>
-              <td>{name}</td>
-            </tr>
+              <tr>
+                <td><strong>Name</strong></td>
+                <td>{name}</td>
+              </tr>
 
-            <tr>
-              <td><strong>Phone</strong></td>
-              <td>{phone}</td>
-            </tr>
+              <tr>
+                <td><strong>Phone</strong></td>
+                <td>{phone}</td>
+              </tr>
 
-            <tr>
-              <td><strong>Configuration</strong></td>
-              <td>{configuration}</td>
-            </tr>
+              <tr>
+                <td><strong>Configuration</strong></td>
+                <td>{configuration}</td>
+              </tr>
 
-            <tr>
-              <td><strong>Budget</strong></td>
-              <td>{budget}</td>
-            </tr>
+              <tr>
+                <td><strong>Budget</strong></td>
+                <td>{budget}</td>
+              </tr>
 
-            <tr>
-              <td><strong>Purpose</strong></td>
-              <td>{purpose}</td>
-            </tr>
+              <tr>
+                <td><strong>Purpose</strong></td>
+                <td>{purpose}</td>
+              </tr>
 
-            <tr>
-              <td><strong>Timeline</strong></td>
-              <td>{timeline}</td>
-            </tr>
+              <tr>
+                <td><strong>Timeline</strong></td>
+                <td>{timeline}</td>
+              </tr>
 
-          </tbody>
-        </table>
+            </tbody>
+          </table>
 
-        <hr
-          style={{
-            marginTop: "30px",
-          }}
-        />
+          <div
+            style={{
+              marginTop: "35px",
+              padding: "20px",
+              background: "#FFF8E7",
+              borderRadius: "12px",
+            }}
+          >
+            <strong>Project</strong>
 
-        <p>
-          Lead generated from the
-          EstateOne Realtors Landing Page.
-        </p>
+            <p>Kolte Patil Vyana</p>
+
+            <strong>Source</strong>
+
+            <p>EstateOne Landing Page</p>
+          </div>
+
+        </div>
 
       </div>
     </div>

@@ -5,12 +5,12 @@ import { Camera, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const images = [
-  "/images/gallery/1.jpg",
-  "/images/gallery/2.jpg",
-  "/images/gallery/3.jpg",
-  "/images/gallery/4.jpg",
-  "/images/gallery/5.jpg",
-  "/images/gallery/6.jpg",
+  "/images/gallery/exterior.jpg",
+  "/images/gallery/lobby.jpg",
+  "/images/gallery/clubhouse.jpg",
+  "/images/gallery/master.plan.jpg",
+  "/images/gallery/riverside.jpg",
+  "/images/gallery/swimming.jpg",
 ];
 
 export default function Gallery() {
