@@ -11,13 +11,17 @@ import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
+import StickyCTA from "@/components/StickyCTA";
+import HeroNew from "@/components/Hero/HeroNew";
+import OfferRibbon from "@/components/OfferRibbon";
+import FloatingCall from "@/components/FloatingCall";
 
 export default function Home() {
   return (
     <>
+    <OfferRibbon />
       <Navbar />
-      <Hero />
+      <HeroNew />
       <TrustBar />
       <Highlights />
       <Configurations />
@@ -30,7 +34,8 @@ export default function Home() {
       <Footer />
 
       <FloatingWhatsApp />
-      <StickyMobileCTA />
+      <FloatingCall />
+      <StickyCTA />
     </>
   );
 }

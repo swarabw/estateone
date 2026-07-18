@@ -3,10 +3,11 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { CheckCircle2 } from "lucide-react";
+import { useLeadModal } from "@/components/lead/LeadModalContext";
 
 export default function LeadForm() {
   const router = useRouter();
-
+  const { closeModal } = useLeadModal();
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(
@@ -72,7 +73,7 @@ export default function LeadForm() {
           project: "Kolte Patil Vyana",
         });
       }
-
+      closeModal();
       router.push("/thank-you");
 
     } catch (error) {

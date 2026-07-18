@@ -16,7 +16,7 @@ export const project: Project = {
 
   possession: "Coming Soon",
 
-  heroPrice: "Starting from ₹80 Lakhs*",
+  heroPrice: "Starting from ₹85Lakhs*",
 
   // ===============================
   // CONTACT
@@ -48,19 +48,18 @@ export const project: Project = {
   // CONFIGURATIONS
   // ===============================
 
-  configurations: [
-    {
-      type: "2 BHK",
-      carpet: "687 - 790 Sq.ft",
-      price: "₹80 Lakhs Onwards",
-    },
-
-    {
-      type: "3 BHK",
-      carpet: "1100 Sq.ft",
-      price: "₹1.15 Cr Onwards",
-    },
-  ],
+ configurations: [
+  {
+    type: "2 BHK",
+    carpet: "687 - 790 Sq.ft",
+    price: "₹85 Lakhs Onwards",
+  },
+  {
+    type: "3 BHK",
+    carpet: "1100 Sq.ft",
+    price: "₹1.15 Cr Onwards",
+  },
+],
 
   // ===============================
   // PROJECT HIGHLIGHTS

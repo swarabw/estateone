@@ -84,17 +84,17 @@ export default function Configurations() {
 
                   <div>
 
-                    <h3 className="text-3xl font-bold">
+                    <div>
+  <h3 className="text-3xl font-bold text-white">
+    {config.type}
+  </h3>
 
-                      {config.type}
-
-                    </h3>
-
-                    <p className="mt-2 text-gray-300">
-
-                      Premium Luxury Residence
-
-                    </p>
+  <p className="mt-2 text-lg font-medium text-[#C89B3C]">
+    {config.type === "2 BHK"
+      ? "Starting ₹85 Lakhs Onwards"
+      : "Starting ₹1.15 Cr Onwards"}
+  </p>
+</div>
 
                   </div>
 

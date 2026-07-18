@@ -1,6 +1,7 @@
 "use client";
-
+import PremiumButton from "@/components/ui/PremiumButton";
 import Image from "next/image";
+import { useLeadModal } from "@/components/lead/LeadModalContext";
 import {
   MapPin,
   CheckCircle2,
@@ -20,6 +21,7 @@ const features = [
 ];
 
 export default function Hero() {
+  const { openModal } = useLeadModal();
   return (
     <section className="relative min-h-screen overflow-hidden">
 
@@ -96,7 +98,7 @@ export default function Hero() {
 
                 <h2 className="mt-2 text-5xl font-bold text-[#D4AF37]">
 
-                  ₹80 Lakhs*
+                  ₹85 Lakhs*
 
                 </h2>
 
@@ -163,11 +165,10 @@ export default function Hero() {
 
               </Button>
 
-              <Button
-                size="lg"
-                variant="secondary"
-                className="h-14 rounded-xl border border-white/20 bg-white/10 px-8 text-white hover:bg-white/20"
-              >
+              <PremiumButton
+  variant="glass"
+  onClick={openModal}
+>
 
                 Book Free Site Visit
 
@@ -176,7 +177,7 @@ export default function Hero() {
                   size={18}
                 />
 
-              </Button>
+              </PremiumButton>
 
             </div>
 
@@ -264,7 +265,7 @@ export default function Hero() {
 
                 <h3 className="text-3xl font-bold text-[#D4AF37]">
 
-                  ₹80 Lakhs*
+                  ₹85 Lakhs*
 
                 </h3>
 

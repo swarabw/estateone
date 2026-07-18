@@ -11,7 +11,7 @@ export default function FAQ() {
   const faqs = [
     {
       q: "What is the starting price?",
-      a: "2 BHK starts from ₹80 Lakhs onwards.",
+      a: "2 BHK starts from ₹85 Lakhs onwards.",
     },
     {
       q: "Is the project RERA approved?",
