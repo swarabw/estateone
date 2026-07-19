@@ -77,13 +77,13 @@ export default function Location() {
           <div className="rounded-[32px] overflow-hidden shadow-2xl border border-slate-800">
 
             <iframe
-  title="Kolte Patil Vyana Location"
-  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15138.367928267478!2d73.80920066201173!3d18.45682576139264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1784142259081!5m2!1sen!2sin"
+  title="Kolte Patil Sales Office Vadgaon"
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.4715648019524!2d73.80137119999999!3d18.462287099999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc29503207d73ff%3A0xbcace0773986e884!2sKolte%20Patil%20Sales%20Office%20Vadgaon!5e0!3m2!1sen!2sin!4v1784460789164!5m2!1sen!2sin"
   className="w-full h-[620px]"
   style={{ border: 0 }}
+  allowFullScreen
   loading="lazy"
   referrerPolicy="strict-origin-when-cross-origin"
-  allowFullScreen
 />
 
           </div>

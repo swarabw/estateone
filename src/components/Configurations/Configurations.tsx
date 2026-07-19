@@ -2,6 +2,7 @@
 
 import { project } from "@/data/project";
 import { Button } from "@/components/ui/button";
+import { useLeadModal } from "@/components/lead/LeadModalContext";
 import {
   Home,
   ArrowRight,
@@ -10,6 +11,7 @@ import {
 } from "lucide-react";
 
 export default function Configurations() {
+  const { openModal } = useLeadModal();
   return (
     <section
       id="configurations"
@@ -197,33 +199,22 @@ export default function Configurations() {
 
                 <div className="mt-10 grid grid-cols-2 gap-5">
 
+                 <Button
+  onClick={openModal}
+  className="h-14 bg-[#C89B3C] font-semibold text-black hover:bg-[#b98d2f]"
+>
+  Book Visit
+</Button>
+
                   <Button
-                    className="h-14 bg-[#C89B3C] font-semibold text-black hover:bg-[#b98d2f]"
-                  >
-
-                    Book Visit
-
-                  </Button>
-
-                  <Button
-                    variant="outline"
-                    className="h-14 border-[#C89B3C]/30 hover:bg-[#faf8f3]"
-                  >
-
-                    <Sparkles
-                      size={18}
-                      className="mr-2"
-                    />
-
-                    Floor Plan
-
-                    <ArrowRight
-                      className="ml-2"
-                      size={16}
-                    />
-
-                  </Button>
-
+  onClick={openModal}
+  variant="outline"
+  className="h-14 border-[#C89B3C]/30 hover:bg-[#faf8f3]"
+>
+  <Sparkles size={18} className="mr-2" />
+  Floor Plan
+  <ArrowRight className="ml-2" size={16} />
+</Button>
                 </div>
 
               </div>
