@@ -201,7 +201,7 @@ export default function Configurations() {
 
                  <Button
   onClick={openModal}
-  className="h-14 bg-[#C89B3C] font-semibold text-black hover:bg-[#b98d2f]"
+  className="h-14 bg-[#C89B3C] font-medium text-black hover:bg-[#b98d2f]"
 >
   Book Visit
 </Button>

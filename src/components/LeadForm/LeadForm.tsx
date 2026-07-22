@@ -159,7 +159,7 @@ export default function LeadForm() {
           <option value="">Select Configuration</option>
           <option>2 BHK</option>
           <option>3 BHK</option>
-          <option>3.5 BHK</option>
+          
         </select>
 
         <select

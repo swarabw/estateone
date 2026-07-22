@@ -16,7 +16,7 @@ const items = [
   {
     icon: Building2,
     title: "Configurations",
-    value: "2, 3 & 3.5 BHK",
+    value: "2 & 3",
   },
   {
     icon: Trees,

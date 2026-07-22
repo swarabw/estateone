@@ -48,127 +48,141 @@ export default function Location() {
   return (
     <section
       id="location"
-      className="py-28 bg-slate-950 text-white"
+      className="relative overflow-hidden bg-[#050816] py-32 text-white"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      {/* Background Glow */}
+      <div className="absolute left-1/2 top-0 h-[450px] w-[450px] -translate-x-1/2 rounded-full bg-yellow-500/10 blur-[180px]" />
 
-        <div className="text-center">
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
 
-          <p className="uppercase tracking-[0.35em] text-yellow-500 font-semibold">
-            LOCATION ADVANTAGE
-          </p>
+        {/* Heading */}
 
-          <h2 className="mt-5 text-5xl lg:text-6xl font-black">
-            Connected To Everything
+        <div className="mx-auto max-w-4xl text-center">
+
+          <span className="inline-flex rounded-full border border-yellow-500/30 bg-yellow-500/10 px-6 py-2 text-xs font-medium uppercase tracking-[0.35em] text-yellow-400">
+            Location Advantage
+          </span>
+
+          <h2 className="mt-8 font-heading text-4xl font-medium leading-tight tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl">
+            Connected To
+            <br />
+            <span className="text-yellow-400">
+              Everything That Matters
+            </span>
           </h2>
 
-          <p className="mt-6 max-w-3xl mx-auto text-gray-400 leading-8">
-            Strategically located on Sinhgad Road with excellent
-            connectivity to schools, hospitals, IT parks,
-            shopping malls and daily conveniences.
+          <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-gray-300">
+            Perfectly positioned at{" "}
+            <span className="font-semibold text-white">
+              Kolte Patil Vyana
+            </span>
+            , offering seamless connectivity to schools,
+            hospitals, IT hubs, shopping destinations and
+            daily conveniences across Pune.
           </p>
 
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 mt-20">
+        {/* Content */}
 
-          {/* Map */}
+        <div className="mt-20 grid gap-14 lg:grid-cols-2">
 
-          <div className="rounded-[32px] overflow-hidden shadow-2xl border border-slate-800">
+          {/* Google Map */}
+
+          <div className="overflow-hidden rounded-[32px] border border-white/10 bg-white/5 shadow-2xl backdrop-blur-xl">
 
             <iframe
-  title="Kolte Patil Sales Office Vadgaon"
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.4715648019524!2d73.80137119999999!3d18.462287099999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc29503207d73ff%3A0xbcace0773986e884!2sKolte%20Patil%20Sales%20Office%20Vadgaon!5e0!3m2!1sen!2sin!4v1784460789164!5m2!1sen!2sin"
-  className="w-full h-[620px]"
-  style={{ border: 0 }}
-  allowFullScreen
-  loading="lazy"
-  referrerPolicy="strict-origin-when-cross-origin"
-/>
+              title="Kolte Patil Sales Office"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.4715648019524!2d73.80137119999999!3d18.462287099999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc29503207d73ff%3A0xbcace0773986e884!2sKolte%20Patil%20Sales%20Office%20Vadgaon!5e0!3m2!1sen!2sin!4v1784460789164!5m2!1sen!2sin"
+              className="h-[620px] w-full"
+              style={{ border: 0 }}
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
 
           </div>
 
-          {/* Cards */}
-
+          {/* Right Side */}
           <div>
 
             <div className="space-y-6">
-
-              {locations.map((item) => {
-
+                            {locations.map((item) => {
                 const Icon = item.icon;
 
                 return (
-
                   <div
                     key={item.title}
-                    className="bg-slate-900 border border-slate-800 rounded-3xl p-7 hover:border-yellow-500 transition duration-300"
+                    className="group rounded-[28px] border border-white/10 bg-white/[0.04] p-7 backdrop-blur-xl transition-all duration-300 hover:border-yellow-500/60 hover:bg-white/[0.07] hover:-translate-y-1"
                   >
-
-                    <div className="flex justify-between items-center">
+                    <div className="flex items-center justify-between">
 
                       <div className="flex items-center gap-5">
 
-                        <div className="w-14 h-14 rounded-2xl bg-yellow-500 flex items-center justify-center">
-
-                          <Icon className="text-black w-7 h-7" />
-
+                        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-yellow-500 transition-transform duration-300 group-hover:scale-110">
+                          <Icon className="h-7 w-7 text-black" />
                         </div>
 
                         <div>
-
-                          <h3 className="text-xl font-semibold">
-
+                          <h3 className="text-xl font-medium text-white">
                             {item.title}
-
                           </h3>
 
-                          <p className="text-gray-400 mt-1">
-
+                          <p className="mt-1 text-sm tracking-wide text-gray-400">
                             Nearby Landmark
-
                           </p>
-
                         </div>
 
                       </div>
 
-                      <div className="flex items-center gap-2 text-yellow-500 font-bold">
+                      <div className="flex items-center gap-2 rounded-full bg-yellow-500/10 px-4 py-2 text-sm font-semibold text-yellow-400">
 
-                        <Clock3 className="w-5 h-5" />
+                        <Clock3 className="h-4 w-4" />
 
                         {item.time}
 
                       </div>
 
                     </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Prime Address */}
+
+            <div className="mt-8 rounded-[30px] bg-gradient-to-r from-yellow-500 to-yellow-400 p-[1px]">
+
+              <div className="rounded-[30px] bg-[#101726] p-8">
+
+                <div className="flex items-center gap-4">
+
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-yellow-500">
+                    <MapPin className="h-7 w-7 text-black" />
+                  </div>
+
+                  <div>
+
+                    <p className="text-sm uppercase tracking-[0.30em] text-yellow-400">
+                      Prime Address
+                    </p>
+
+                    <h3 className="mt-1 text-2xl font-semibold text-white">
+                      Kolte Patil Vyana
+                    </h3>
 
                   </div>
 
-                );
+                </div>
 
-              })}
-
-            </div>
-
-            <div className="mt-10 rounded-3xl bg-yellow-500 text-black p-8">
-
-              <div className="flex items-center gap-3">
-
-                <MapPin className="w-7 h-7" />
-
-                <h3 className="text-2xl font-black">
-                  Prime Address
-                </h3>
+                <p className="mt-6 text-lg leading-8 text-gray-300">
+                  Sinhgad Road,
+                  <br />
+                  Pune,
+                  Maharashtra.
+                </p>
 
               </div>
-
-              <p className="mt-5 leading-8 font-medium">
-                Kolte Patil Vyana,
-                Sinhgad Road,
-                Pune,
-                Maharashtra.
-              </p>
 
             </div>
 

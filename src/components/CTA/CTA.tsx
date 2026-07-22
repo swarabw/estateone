@@ -1,87 +1,72 @@
 "use client";
 
-import { useCallback } from "react";
-
 import { ArrowRight, Download, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { project } from "@/data/project";
+import { useLeadModal } from "@/components/lead/LeadModalContext";
 
 export default function CTA() {
-  const scrollToForm = useCallback(() => {
-  const form = document.getElementById("lead-form");
+  const { openModal } = useLeadModal();
 
-  if (form) {
-    form.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-    });
-  }
-}, []);
   return (
-    <section className="relative overflow-hidden bg-slate-950 py-28">
+    <section className="relative overflow-hidden bg-[#050816] py-32">
 
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#C8A54B20,transparent_70%)]" />
+      {/* Background Glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#D4AF3720,transparent_70%)]" />
 
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className="relative mx-auto max-w-7xl px-6">
 
-        <div className="rounded-[40px] border border-yellow-500/20 bg-white/5 backdrop-blur-xl p-12 lg:p-20">
+        <div className="rounded-[42px] border border-white/10 bg-white/[0.03] p-12 backdrop-blur-xl lg:p-20">
 
-          <div className="text-center">
+          <div className="mx-auto max-w-4xl text-center">
 
-            <p className="uppercase tracking-[0.4em] text-yellow-500 font-semibold">
+            <span className="inline-block rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 px-5 py-2 text-xs font-medium uppercase tracking-[0.35em] text-[#D4AF37]">
               LIMITED PERIOD OFFER
-            </p>
+            </span>
 
-            <h2 className="mt-6 text-5xl lg:text-7xl font-black text-white leading-tight">
-
-              Book Your Dream Home
-
+            <h2 className="mt-8 font-heading text-4xl font-medium leading-[1.1] tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl">
+              Reserve Your Home
               <br />
-
-              Before Prices Increase
-
+              <span className="text-[#D4AF37]">
+                Before Prices Increase
+              </span>
             </h2>
 
-            <p className="mt-8 text-xl text-gray-300 max-w-3xl mx-auto leading-9">
-
-              Schedule a free site visit with EstateOne Realtors and
-              receive the latest price sheet, floor plans and exclusive
-              launch offers.
-
+            <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-gray-300">
+              Schedule a complimentary site visit with EstateOne Realtors
+              and receive the latest price sheet, floor plans and exclusive
+              pre-launch offers.
             </p>
 
-            <div className="mt-14 flex flex-wrap justify-center gap-6">
+            <div className="mt-12 flex flex-wrap justify-center gap-5">
 
-             <Button
-  size="lg"
-  onClick={scrollToForm}
-  className="h-16 px-10 text-lg bg-yellow-500 hover:bg-yellow-600 text-black font-bold"
->
-  Book Free Site Visit
-
-  <ArrowRight className="ml-3 h-5 w-5" />
-</Button>
               <Button
-  size="lg"
-  onClick={scrollToForm}
-  variant="secondary"
-  className="h-16 px-10 text-lg"
->
-  <Download className="mr-3 h-5 w-5" />
+                size="lg"
+                onClick={openModal}
+                className="h-16 rounded-xl bg-[#D4AF37] px-10 text-lg font-semibold text-black hover:bg-[#C39B2D]"
+              >
+                Book Free Site Visit
+                <ArrowRight className="ml-3 h-5 w-5" />
+              </Button>
 
-  Get Price Sheet
-</Button>
+              <Button
+                size="lg"
+                variant="secondary"
+                onClick={openModal}
+                className="h-16 rounded-xl border border-white/15 bg-white text-lg text-black hover:bg-gray-100"
+              >
+                <Download className="mr-3 h-5 w-5" />
+                Get Price Sheet
+              </Button>
 
             </div>
 
-            <div className="mt-14 inline-flex items-center gap-4 rounded-full border border-yellow-500/20 bg-white/10 px-8 py-5">
+            <div className="mt-14 inline-flex items-center gap-4 rounded-full border border-[#D4AF37]/20 bg-white/5 px-8 py-5">
 
-              <Phone className="text-yellow-500 h-6 w-6" />
+              <Phone className="h-6 w-6 text-[#D4AF37]" />
 
-              <span className="text-white text-xl font-bold">
-
+              <span className="text-xl font-semibold text-white">
                 {project.phone}
-
               </span>
 
             </div>

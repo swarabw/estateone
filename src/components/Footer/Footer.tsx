@@ -5,21 +5,21 @@ import { project } from "@/data/project";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 text-white">
-      <div className="max-w-7xl mx-auto px-6 py-20">
+    <footer className="bg-[#050816] text-white">
+      <div className="max-w-7xl mx-auto px-6 py-24">
 
-        <div className="grid lg:grid-cols-3 gap-12">
+        <div className="grid gap-16 lg:grid-cols-3">
 
           {/* Company */}
 
           <div>
 
-            <h2 className="text-3xl font-bold">
-              Estate<span className="text-yellow-500">One</span>
+            <h2 className="text-4xl font-heading font-semibold tracking-tight text-white">
+              Estate<span className="text-[#D4AF37]">One</span>
             </h2>
 
-            <p className="mt-6 text-gray-400 leading-8">
-              Authorized Channel Partner for Premium Residential Projects
+            <p className="mt-7 max-w-sm text-lg leading-8 text-gray-300">
+              Authorized Channel Partner for premium residential projects
               across Pune.
             </p>
 
@@ -29,36 +29,56 @@ export default function Footer() {
 
           <div>
 
-            <h3 className="text-xl font-semibold mb-6">
+            <h3 className="mb-8 text-2xl font-semibold text-white">
               Contact
             </h3>
 
-            <div className="space-y-5">
+            <div className="space-y-7">
 
-              <div className="flex gap-4">
+              <div className="flex items-start gap-4">
 
-                <Phone className="text-yellow-500 mt-1" />
+                <Phone
+                  size={24}
+                  className="mt-1 text-[#D4AF37]"
+                />
 
-                <div>
-                  <p>{project.phone}</p>
-                  <p>{project.alternatePhone}</p>
+                <div className="space-y-1">
+
+                  <p className="text-lg text-white">
+                    {project.phone}
+                  </p>
+
+                  <p className="text-lg text-gray-300">
+                    {project.alternatePhone}
+                  </p>
+
                 </div>
 
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex items-start gap-4">
 
-                <Mail className="text-yellow-500 mt-1" />
+                <Mail
+                  size={24}
+                  className="mt-1 text-[#D4AF37]"
+                />
 
-                <p>{project.email}</p>
+                <p className="text-lg text-gray-300 break-all">
+                  {project.email}
+                </p>
 
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex items-start gap-4">
 
-                <MapPin className="text-yellow-500 mt-1" />
+                <MapPin
+                  size={24}
+                  className="mt-1 text-[#D4AF37]"
+                />
 
-                <p>{project.location}</p>
+                <p className="text-lg text-gray-300">
+                  {project.location}
+                </p>
 
               </div>
 
@@ -66,30 +86,42 @@ export default function Footer() {
 
           </div>
 
-          {/* Legal */}
+          {/* Project */}
 
           <div>
 
-            <h3 className="text-xl font-semibold mb-6">
+            <h3 className="mb-8 text-2xl font-semibold text-white">
               Project Information
             </h3>
 
-            <div className="space-y-4 text-gray-300">
+            <div className="space-y-6 text-lg">
 
-              <p>
-                <strong>Project :</strong> {project.name}
+              <p className="text-gray-300">
+                <span className="font-semibold text-white">
+                  Project :
+                </span>{" "}
+                {project.name}
               </p>
 
-              <p>
-                <strong>Builder :</strong> {project.builder}
+              <p className="text-gray-300">
+                <span className="font-semibold text-white">
+                  Builder :
+                </span>{" "}
+                {project.builder}
               </p>
 
-              <p>
-                <strong>RERA :</strong> {project.rera}
+              <p className="text-gray-300">
+                <span className="font-semibold text-white">
+                  RERA :
+                </span>{" "}
+                {project.rera}
               </p>
 
-              <p>
-                <strong>Possession :</strong> {project.possession}
+              <p className="text-gray-300">
+                <span className="font-semibold text-white">
+                  Possession :
+                </span>{" "}
+                {project.possession}
               </p>
 
             </div>
@@ -98,9 +130,11 @@ export default function Footer() {
 
         </div>
 
-        <div className="border-t border-slate-800 mt-16 pt-8 text-center text-gray-500 text-sm">
+        <div className="mt-20 border-t border-white/10 pt-8">
 
-          © {new Date().getFullYear()} EstateOne Realtors. All Rights Reserved.
+          <p className="text-center text-gray-400">
+            © {new Date().getFullYear()} EstateOne Realtors. All Rights Reserved.
+          </p>
 
         </div>
 

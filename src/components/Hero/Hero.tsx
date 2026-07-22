@@ -79,7 +79,7 @@ export default function Hero() {
 
             <p className="mt-8 max-w-xl text-xl leading-9 text-gray-200">
 
-              Premium <strong>2, 3 & 3.5 BHK Homes</strong>
+              Premium <strong>2 & 3 BHK Homes</strong>
               <br />
 
               by {project.builder}
@@ -249,7 +249,7 @@ export default function Hero() {
 
                 <h3 className="mt-2 text-xl font-semibold text-white">
 
-                  2, 3 & 3.5 BHK Residences
+                  2 & 3 Residences
 
                 </h3>
 

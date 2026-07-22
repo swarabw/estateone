@@ -14,7 +14,7 @@ export const project: Project = {
 
   rera: "PM1261012600748",
 
-  possession: "Coming Soon",
+  possession: "December 2026",
 
   heroPrice: "Starting from ₹85Lakhs*",
 
@@ -38,7 +38,7 @@ export const project: Project = {
     "Luxury Riverside Living on Sinhgad Road",
 
   heroSubtitle:
-    "Premium 2, 3 & 3.5 BHK Homes by Kolte Patil Developers",
+    "Premium 2 & 3 BHK Homes by Kolte Patil Developers",
 
   ctaPrimary: "Book Free Site Visit",
 

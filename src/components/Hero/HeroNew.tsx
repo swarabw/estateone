@@ -27,11 +27,11 @@ export default function HeroNew() {
 
       {/* Dark Overlay */}
 
-      <div className="absolute inset-0 bg-black/45" />
+      <div className="absolute inset-0 bg-black/30" />
 
       {/* Premium Gradient */}
 
-      <div className="absolute inset-0 bg-gradient-to-r from-[#050816]/85 via-[#050816]/45 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70  via-[#050816]/45 to-transparent" />
 
       {/* Bottom Gradient */}
 
@@ -41,15 +41,15 @@ export default function HeroNew() {
 
       <div className="relative z-20">
 
-        <div className="mx-auto flex min-h-screen max-w-7xl items-center px-6 pt-32 pb-20 sm:px-8 lg:px-12 lg:pt-28">
+        <div className="mx-auto flex min-h-screen max-w-7xl items-center px-6 pt-28 pb-36 sm:px-10 lg:px-16">
 
-          <div className="max-w-3xl">
+          <div className="max-w-2xl space-y-10">
 
             {/* Badge */}
 
-            <div className="inline-flex items-center rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 px-5 py-2 backdrop-blur-xl">
+            <div className="inline-flex items-center rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 px-4 py-1.5 backdrop-blur-xl">
 
-              <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#D4AF37] sm:text-sm">
+              <span className="text-xs font-medium uppercase tracking-[0.35em] text-[#D4AF37] sm:text-sm">
 
                 Exclusive Launch
 
@@ -58,84 +58,75 @@ export default function HeroNew() {
             </div>
 
             {/* Heading */}
+<div className="mt-8 space-y-5">
 
-            <h1 className="mt-6 font-heading text-4xl font-extrabold leading-[1.05] text-white sm:text-6xl lg:text-7xl">
+  <h1 className="font-heading text-[2.8rem] leading-[1.05] font-medium tracking-[-0.03em] text-white sm:text-6xl xl:text-7xl">
 
-              Premium 2, 3 & 3.5 BHK
+    Kolte Patil Vyana
 
-              <br />
+  </h1>
 
-              <span className="text-[#D4AF37]">
-on Sinhgad Road
-              </span>
+  <p className="font-heading text-xl font-normal text-white/85 sm:text-2xl md:text-3xl">
 
-              <br />
+    Luxury Riverside Living
 
-              at {project.name}
+  </p>
 
-            </h1>
+  <div className="flex items-center gap-3">
 
+    <div className="h-px w-12 bg-[#D4AF37]" />
+
+    <p className="text-lg font-medium tracking-[0.12em] uppercase text-[#D4AF37]">
+
+      Premium 2 & 3 Residences
+
+    </p>
+
+  </div>
+
+</div>
             {/* Subtitle */}
+<p className="mt-8 max-w-lg text-base leading-8 text-white/70 lg:text-lg">
 
-            <p className="mt-8 max-w-2xl text-lg leading-8 text-gray-200">
-Experience premium riverside living by{" "}
+Experience thoughtfully crafted riverside residences by
 <span className="font-semibold text-white">
-Kolte Patil Developers
+{" "}Kolte Patil Developers
 </span>
-with world-class amenities, seamless connectivity and luxurious lifestyle spaces.
+designed with timeless architecture, expansive open spaces and world-class amenities on Sinhgad Road.
+
 </p>
 
             {/* Price */}
+            <div className="mt-12 h-px w-32 bg-gradient-to-r from-[#D4AF37] to-transparent" />
 
-            <div className="mt-12 flex flex-col gap-8 sm:flex-row sm:items-center">
+            <div className="mt-12">
 
-              <div>
+  <p className="text-xs uppercase tracking-[0.35em] text-white/50">
 
-                <p className="text-xs uppercase tracking-[0.35em] text-gray-400">
+    Starting From
 
-                  Starting From
+  </p>
 
-                </p>
+  <h2 className="mt-3 text-5xl font-semibold tracking-tight text-[#D4AF37]">
 
-                <h2 className="mt-3 text-4xl font-bold text-[#D4AF37] lg:text-5xl">
+    ₹85 Lakhs*
 
-                  ₹85Lakhs*
+  </h2>
 
-                </h2>
+  <div className="mt-5 flex items-center gap-3 text-white/70">
 
-              </div>
+    <MapPin
+      className="text-[#D4AF37]"
+      size={18}
+    />
 
-              <div className="hidden h-16 w-px bg-white/20 sm:block" />
+    <span>
 
-              <div className="flex items-center gap-3">
+      Sinhgad Road, Pune
 
-                <MapPin
-                  className="text-[#D4AF37]"
-                  size={22}
-                />
+    </span>
 
-                <span className="text-base text-gray-200">
-
-                  {project.location}
-
-                </span>
-
-              </div>
-
-            </div>
-            <div className="mt-6 flex flex-wrap gap-3">
-
-  <span className="rounded-full bg-green-500/20 px-4 py-2 text-sm font-semibold text-green-300">
-    No Brokerage
-  </span>
-
-  <span className="rounded-full bg-[#D4AF37]/20 px-4 py-2 text-sm font-semibold text-[#D4AF37]">
-    RERA Approved
-  </span>
-
-  <span className="rounded-full bg-red-500/20 px-4 py-2 text-sm font-semibold text-red-300">
-    Limited Pre-Launch Pricing
-  </span>
+  </div>
 
 </div>
 
@@ -145,7 +136,7 @@ with world-class amenities, seamless connectivity and luxurious lifestyle spaces
 
               <PremiumButton
                 onClick={openModal}
-                className="w-full sm:w-auto"
+                className="h-14 w-full sm:h-16 sm:w-auto"
               >
 
                 <Download
@@ -153,17 +144,17 @@ with world-class amenities, seamless connectivity and luxurious lifestyle spaces
                   size={18}
                 />
 
-                Download Price List
+                Download Brochure
 
               </PremiumButton>
 
               <PremiumButton
                 variant="glass"
                 onClick={openModal}
-                className="w-full sm:w-auto"
+                className="h-14 w-full sm:h-16 sm:w-auto"
               >
 
-                Book Free Site Visit
+                Book a Private Site Visit
 
                 <ArrowRight
                   className="ml-2"
@@ -173,10 +164,10 @@ with world-class amenities, seamless connectivity and luxurious lifestyle spaces
               </PremiumButton>
 
             </div>
-            <p className="mt-5 flex items-center gap-2 text-sm text-gray-300">
-  <span className="text-yellow-400">★★★★★</span>
-  Trusted by 500+ Homebuyers across Pune
+            <p className="mt-8 text-sm uppercase tracking-[0.3em] text-white/60">
+    Crafted by Kolte Patil Developers
 </p>
+<div className="mt-8 flex flex-wrap gap-3">
 
             {/* PART 2 STARTS HERE */}
 
@@ -185,24 +176,27 @@ with world-class amenities, seamless connectivity and luxurious lifestyle spaces
         </div>
 
       </div>
-      <div className="mt-8 flex flex-wrap gap-3">
+      
 
-  <div className="rounded-full bg-white/10 px-4 py-2 text-sm text-white backdrop-blur">
-    ✅ RERA Approved
+ <div className="mt-8 mb-20 flex flex-wrap gap-3">
+
+  <div className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur">
+    ✓ RERA Approved
   </div>
 
-  <div className="rounded-full bg-white/10 px-4 py-2 text-sm text-white backdrop-blur">
-    ✅ No Brokerage
+  <div className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur">
+    ✓ No Brokerage
   </div>
 
-  <div className="rounded-full bg-white/10 px-4 py-2 text-sm text-white backdrop-blur">
-    ✅ Bank Loan Available
+  <div className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur">
+    ✓ Bank Loan Available
   </div>
 
-  <div className="rounded-full bg-white/10 px-4 py-2 text-sm text-white backdrop-blur">
-    ✅ Limited Pre-Launch Pricing
+  <div className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur">
+    ✓ Limited Pre-Launch Pricing
   </div>
 
+</div>
 </div>
 
     </section>
